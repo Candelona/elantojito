@@ -1,0 +1,566 @@
+/* ==========================
+   FUENTES PERSONALIZADAS
+========================= */
+@font-face {
+    font-family: "Author Handwriting";
+    src: url("fuentes/Author Handwriting.otf");
+}
+
+@font-face {
+    font-family: AMORIA;
+    src: url("fuentes/AMORIA.otf");
+}
+
+@font-face {
+    font-family: MexicanTequila;
+    src: url("fuentes/MexicanTequila.ttf");
+}
+
+@font-face {
+    font-family: Loverine;
+    src: url("fuentes/Loverine.otf");
+}
+
+@font-face {
+    font-family: "Las locuras del emperador";
+    src: url("fuentes/Las locuras del emperador.TTF");
+}
+
+/* ==========================
+   RESETEO Y BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body {
+    height: auto;
+}
+
+/* ==========================
+   HEADER
+========================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    display: flex;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(90deg, #000000, #292723);
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ==========================
+   LOGO
+========================= */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 15%;
+    height: auto;
+    margin-top: 1%;
+}
+
+.logo img {
+    cursor: pointer;
+    user-select: none;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================
+   NAVBAR PRINCIPAL
+========================= */
+nav#main-nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 40px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .85s cubic-bezier(.2,.8,.2,1), opacity .85s ease;
+    z-index: 1002;
+    width: 80%;
+    justify-content: space-evenly;
+    font-family: AMORIA;
+}
+
+nav#main-nav.open {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+nav#main-nav a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    width: 18%;
+    height: 40px;
+}
+
+nav#main-nav a:hover {
+    background-color: #d93b3b;
+    color: #fff;
+    font-size: 21px;
+    border-radius: 5px;
+    height: 40px;
+}
+
+/* ==========================
+   HAMBURGUESA
+========================= */
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 0;
+    position: relative;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger .bar,
+.hamburger .bar::before,
+.hamburger .bar::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.hamburger .bar {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .bar::before {
+    top: -10px;
+}
+
+.hamburger .bar::after {
+    top: 10px;
+}
+
+.hamburger[aria-expanded="true"] .bar {
+    opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] .bar::before {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] .bar::after {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ==========================
+   MAIN
+========================= */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* ==========================
+   INDEX
+========================= */
+#index h1 {
+    font-family: MexicanTequila;
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+    background: linear-gradient(270deg, #ff0000, #ff9100, #ffee00, #00ff88, #00c3ff, #7b00ff, #ff00c8);
+    background-size: 1400% 1400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 10s ease infinite;
+    margin-bottom: 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#index .subtit h2 {
+    font-family: Loverine;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #000;
+}
+
+#index .presentacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 16px;
+    flex-wrap: wrap;
+}
+
+#index .bloque-video video {
+    width: 280px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+#index .bloque-texto {
+    max-width: 640px;
+    text-align: left;
+}
+
+#index .bloque-texto p {
+    font-family: Author Handwriting;
+    letter-spacing: 1px;
+    font-size: 1.9rem;
+    line-height: 1.8;
+}
+
+/* ==========================
+   RESEÑAS
+========================= */
+.reseñas-intro h2 {
+    font-family: "Author Handwriting";
+    font-size: 35px;
+    padding: 7px;
+}
+
+.reseñas-intro p {
+    font-family: "Author Handwriting";
+    font-size: 24px;
+    padding: 7px;
+}
+
+.reseña {
+    background-color: #ffe6d6;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .5s ease;
+}
+
+.reseña.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reseña h3 {
+    margin: 0;
+    color: #d94f2d;
+}
+
+.reseña .fecha {
+    font-size: .9rem;
+    color: #666;
+}
+
+.reseña .calificacion {
+    font-size: 1.2rem;
+    color: #f5b301;
+    margin-top: 5px;
+}
+
+.deja-reseña input,
+.deja-reseña textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.deja-reseña button {
+    background-color: #d94f2d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.deja-reseña button:hover {
+    background-color: #b03b20;
+}
+
+.estrellas {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.estrellas span {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+.estrellas span.hover,
+.estrellas span.seleccionada {
+    color: #f5b301;
+}
+
+/* ==========================
+   FOOTER
+========================= */
+.footer {
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    font-family: Author Handwriting;
+    font-size: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.footer-direccion,
+.footer-telefono,
+.footer-copy {
+    font-size: 20px;
+    margin: 0;
+}
+
+.footer-redes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-redes a img {
+    width: 32px;
+    height: 32px;
+    transition: transform .3s, opacity .3s;
+}
+
+.footer-redes a img:hover {
+    transform: scale(1.2);
+    opacity: .8;
+}
+
+/* ==========================
+   GALERÍA
+========================= */
+body#galeria main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 16px;
+}
+
+body#galeria .galeriatitulo {
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 175px;
+}
+
+body#galeria .galeriatitulo h1 {
+    font-family: MexicanTequila;
+    font-size: 50px;
+    font-weight: normal;
+    background: linear-gradient(270deg, #ff0000, #ff9100, #ffee00, #00ff88, #00c3ff, #7b00ff, #ff00c8);
+    background-size: 1400% 1400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 10s ease infinite;
+    margin: 0;
+}
+
+body#galeria #vlightbox1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+body#galeria #vlightbox1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================
+   ANIMACIÓN MULTICOLOR
+========================= */
+@keyframes colorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================
+   MEDIA QUERIES
+========================= */
+@media (max-width: 900px) {
+
+    #index h1 {
+        font-size: clamp(2rem, 8vw, 50px);
+        white-space: normal;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #index .hamburger {
+        display: inline-block !important;
+    }
+
+    #index .logo img {
+        display: none !important;
+    }
+
+    #index .logo a {
+        pointer-events: none;
+    }
+
+    #index nav#main-nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border-radius: 0;
+        padding: 8px 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,.12);
+        background: #fff;
+        transition: transform .3s ease, opacity .3s ease;
+    }
+
+    #index nav#main-nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #index nav#main-nav a {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(0,0,0,.04);
+    }
+
+    #index .presentacion {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        margin: 20px auto;
+    }
+
+    #index .bloque-video video {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+    }
+
+    #index .bloque-texto {
+        width: 100%;
+        text-align: center;
+    }
+
+    body#galeria .galeriatitulo h1 {
+        font-size: clamp(2rem, 8vw, 50px);
+        white-space: normal;
+        text-align: center;
+        padding-left: 8px;
+    }
+
+    body#galeria #vlightbox1 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* ==========================
+       MENU HAMBURGUESA MÓVIL
+    ========================== */
+    nav#main-nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        border-radius: 0;
+        padding: 8px 0;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        background: #fff;
+        transition: transform .3s ease, opacity .3s ease;
+    }
+
+    nav#main-nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav#main-nav a {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(0,0,0,.04);
+        width: 100%;
+        text-align: center;
+    }
+}
